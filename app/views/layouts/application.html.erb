@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forum</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <% if current_user.nil? %>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <% else %>
+          <li><%= link_to 'Sign out', user_sessions_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
