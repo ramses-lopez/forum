@@ -1,19 +1,15 @@
-<p id="notice"><%= notice %></p>
-
+<h1><%= @topic.title %></h1>
 <p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
   <%= @topic.content %>
+  <footer class="blockquote-footer">
+    <%= @topic.user.name %>, <%= time_ago_in_words @topic.created_at %> ago
+  </footer>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @topic.user.name %>
-</p>
+<% @topic.posts.each do |post| %>
+  <%= render post %>
+  <hr>
+<% end %>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%#= link_to 'Edit', edit_topic_path(@topic) %>
+<%#= link_to 'Back', topics_path %>

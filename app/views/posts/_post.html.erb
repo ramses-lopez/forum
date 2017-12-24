@@ -1,0 +1,6 @@
+<div>
+  <%= post.content %>
+  <footer class="blockquote-footer">
+    <%= post.user.name %>, <%= time_ago_in_words post.created_at %> ago
+  </footer>
+</div>
