@@ -1,3 +1,18 @@
-<h1>LibreForum</h1>
+<h1> LibreForum </h1>
 
-<%= link_to 'Private area', private_area_path %>
+<h2> Latest topics </h2>
+
+<section>
+  <% Topic.limit(3).each do |topic| %>
+    <div class="">
+      <h4><%= link_to topic.title, topic_path(topic) %> <%= pluralize(topic.posts.size, 'post') %> </h4>
+      <h5><%= time_ago_in_words(topic.created_at) %> ago by <%= topic.user.name %></h5>
+      <p>
+        <%= topic.content[0..50] %>...
+      </p>
+      <% if topic.posts.last %>
+        latest post <%= time_ago_in_words(topic.posts.last.created_at) %> ago by <%= topic.posts.last.user.name %>
+      <% end  %>
+    </div>
+  <% end  %>
+</section>

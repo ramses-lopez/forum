@@ -6,27 +6,19 @@ ruby '2.4.2'
 # authentication
 gem 'authlogic'
 gem 'auto_strip_attributes'
+gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0.beta2'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'uglifier', '>= 1.3.0'
+gem 'webpacker'
+# gem 'mini_racer', platforms: :ruby
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -42,15 +34,14 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'bullet' # watches over n+1 queries
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
-  gem 'spring-commands-rspec'
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'spring-commands-rspec'
 end
 
 group :development do

@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  include ApplicationHelper
+  before_action :login_required
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   # GET /topics
@@ -69,6 +71,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:title, :body, :user_id)
+      params.require(:topic).permit(:title, :content, :user_id)
     end
 end
