@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 namespace :db do
-  desc 'Loads fake data used for development'
+  desc 'Loads fake data for development use'
   task load_test_data: :environment do
-    Organisation.all.destroy_all
+    Topic.all.destroy_all
     User.all.destroy_all
 
-    3.times { FactoryBot.create(:user) }
-    2.times { FactoryBot.create(:thread_empty) }
-    2.times { FactoryBot.create(:thread_with_posts) }
+    1.times { FactoryBot.create(:populated_topic) }
+    1.times { FactoryBot.create(:topic) }
+    2.times { FactoryBot.create(:populated_topic) }
 
     puts 'Test data loaded'
     puts " - User: #{User.first.email}"
