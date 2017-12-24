@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  include ApplicationHelper
+
   def new
     @user_session = UserSession.new
   end
@@ -6,7 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(user_session_params)
     if @user_session.save
-      redirect_to root_path
+      redirect_back_or_default(root_path)
     else
       render :new
     end
@@ -14,7 +16,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
-    redirect_to new_user_session_url
+    redirect_to root_path
   end
 
   private

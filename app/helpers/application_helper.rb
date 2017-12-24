@@ -2,8 +2,8 @@ module ApplicationHelper
   def login_required
     if current_user.nil?
       store_location
-      redirect_to new_user_session_path, notice: 'Please log in to continue'
-      return false
+      redirect_to new_user_session_path, notice: 'Please log in to continue!'
+      false
     end
   end
 
