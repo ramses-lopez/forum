@@ -9,16 +9,18 @@
     <div class="card-text">
       <%= @topic.content %>
       <footer class="blockquote-footer">
+        <img style="width: 55px" src="<%= @topic.user.photo_url %>" alt="<%= @topic.user.name %>'s photo">
         <%= @topic.user.name %>, <%= time_ago_in_words @topic.created_at %> ago
       </footer>
     </div>
+    <br>
     <div class="card-text">
       <%= link_to 'Reply', new_topic_post_path(@topic), class: 'btn btn-sm btn-primary' %>
     </div>
   </div>
   <ul class="list-group list-group-flush">
     <% @topic.posts.each do |post| %>
-    <%= render post %>
+      <%= render post %>
     <% end %>
   </ul>
 </div>

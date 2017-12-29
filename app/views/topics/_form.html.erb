@@ -2,6 +2,7 @@
   <%= render 'shared/errors', object: topic %>
 
   <div class="form-group">
+    <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.label :title %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>

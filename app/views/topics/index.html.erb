@@ -1,4 +1,4 @@
-<h1>Topics</h1>
+<h3>Topics <%= link_to 'New Topic', new_topic_path, class: 'btn btn-sm btn-primary' %></h3>
 
 <table class="table">
   <tbody>
@@ -7,26 +7,17 @@
         <td>
           <p>
             <%= link_to topic.title, topic %>
+            (updated <%= time_ago_in_words(topic.created_at) %> ago)
           </p>
           <p>
-            <%= topic.content[0..100] %>
+            <i class="text-muted"><%= topic.content[0..100] %>...</i>
           </p>
-          <p>
-          </p>
-          <blockquote className="blockquote mb-0 text-right">
-            <footer className="blockquote-footer">
-              <img style="width: 75px" src="<%= topic.user.photo_url %>" alt="<%= topic.user.name %>'s photo">
-              <%= topic.user.name %>
-            </footer>
-          </blockquote>
-          Last updated <%= time_ago_in_words(topic.created_at) %> ago
         </td>
+        <td class="text-right text">
+          <%= topic.user.name %>
+          <img style="width: 55px" src="<%= topic.user.photo_url %>" alt="<%= topic.user.name %>'s photo">
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Topic', new_topic_path %>
