@@ -1,6 +1,9 @@
-<div>
+<li class="list-group-item">
   <%= post.content %>
   <footer class="blockquote-footer">
     <%= post.user.name %>, <%= time_ago_in_words post.created_at %> ago
   </footer>
-</div>
+  <% if current_user.id == post.user_id %>
+    <%= link_to 'Edit', edit_topic_post_path(post.topic, post), class: 'btn btn-sm btn-primary' %>
+  <% end %>
+</li>

@@ -1,15 +1,24 @@
-<h1><%= @topic.title %></h1>
-<p>
-  <%= @topic.content %>
-  <footer class="blockquote-footer">
-    <%= @topic.user.name %>, <%= time_ago_in_words @topic.created_at %> ago
-  </footer>
-</p>
-
-<% @topic.posts.each do |post| %>
-  <%= render post %>
-  <hr>
-<% end %>
-
-<%#= link_to 'Edit', edit_topic_path(@topic) %>
-<%#= link_to 'Back', topics_path %>
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">
+      <%= @topic.title %>
+      <% if current_user.id == @topic.user_id %>
+        <%= link_to 'Edit', edit_topic_path(@topic), class: 'btn btn-sm btn-primary' %>
+      <% end %>
+    </h3>
+    <div class="card-text">
+      <%= @topic.content %>
+      <footer class="blockquote-footer">
+        <%= @topic.user.name %>, <%= time_ago_in_words @topic.created_at %> ago
+      </footer>
+    </div>
+    <div class="card-text">
+      <%= link_to 'Reply', new_topic_post_path(@topic), class: 'btn btn-sm btn-primary' %>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @topic.posts.each do |post| %>
+    <%= render post %>
+    <% end %>
+  </ul>
+</div>
