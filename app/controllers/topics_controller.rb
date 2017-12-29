@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   include ApplicationHelper
-  before_action :login_required
+  before_action :login_required #, except: [:index, :create, :update]
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   # GET /topics

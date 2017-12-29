@@ -1,18 +1,26 @@
-<h1> LibreForum </h1>
+<div class="row">
+  <div class="col-2">
+  </div>
 
-<h2> Latest topics </h2>
+  <div class="col-8">
+    <h3>Latest posts</h3>
+    <% Topic.limit(3).each do |topic| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <%= link_to topic.title, topic_path(topic) %> <%= pluralize(topic.posts.size, 'post') %>
+            <br>
+            <small><%= time_ago_in_words(topic.created_at) %> ago by <%= topic.user.name %></small>
+            <% if topic.posts.last %>
+              latest post <%= time_ago_in_words(topic.posts.last.created_at) %> ago by <%= topic.posts.last.user.name %>
+            <% end  %>
+          </div>
+        </div>
+      </div>
+    <% end  %>
+  </div>
 
-<section>
-  <% Topic.limit(3).each do |topic| %>
-    <div class="">
-      <h4><%= link_to topic.title, topic_path(topic) %> <%= pluralize(topic.posts.size, 'post') %> </h4>
-      <h5><%= time_ago_in_words(topic.created_at) %> ago by <%= topic.user.name %></h5>
-      <p>
-        <%= topic.content[0..50] %>...
-      </p>
-      <% if topic.posts.last %>
-        latest post <%= time_ago_in_words(topic.posts.last.created_at) %> ago by <%= topic.posts.last.user.name %>
-      <% end  %>
-    </div>
-  <% end  %>
-</section>
+  <div class="col-2">
+  </div>
+
+</div>

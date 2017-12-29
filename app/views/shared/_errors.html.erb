@@ -1,0 +1,10 @@
+<% if !object.nil? && object.errors.any? %>
+  <div id="error_explanation">
+    <h2>Found <%= pluralize(object.errors.count, "error") %> while saving</h2>
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
