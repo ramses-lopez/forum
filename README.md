@@ -32,12 +32,13 @@ bundle install
 ```
 rake db:setup
 ```
-1. You're all set! run `rails s` to start the development server
+1. You're all set! run `rails s` to start the development server and go to `http://localhost:3000`
 
 1. *[Optional]* You can run the `rake db:load_test_data` task to generate some dummy data.
 
 ## Next steps
 
 * Rails 5.2 comes with the `webpacker` gem integrated, so you can use a SPA framework for the UI with Rails as a backend. All the required configuration is already done in this app, but the UI is not. So, next up, *ReactJS UI!*
+* Deploy to Heroku, for demo convenience
 * Search functionality
 * User Notifications
