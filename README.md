@@ -2,6 +2,10 @@
 
 This a Ruby on Rails 5.2 app, created to serve as a simple demo app
 
+## Video demo
+
+https://www.youtube.com/watch?v=XgjSrHEGHyw
+
 ## Requirements
 
 * Ruby 2.4+
