@@ -7,7 +7,7 @@ ruby '2.4.2'
 gem 'authlogic'
 gem 'auto_strip_attributes'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg'
